@@ -16,11 +16,11 @@
     <meta name="apple-mobile-web-app-title" content="Raha Events" />
     
     <!-- Manifest -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     
     <!-- Icons -->
-    <link rel="icon" href="/placeholder.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/placeholder.svg" />
+    <link rel="icon" href="./placeholder.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./placeholder.svg" />
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Raha Events - Premier Tours & Event Planning in Rwanda" />
@@ -45,7 +45,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          navigator.serviceWorker.register('./sw.js')
             .then((registration) => {
               console.log('SW registered: ', registration);
             })

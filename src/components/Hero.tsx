@@ -3,6 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin } from "lucide-react";
 
 const Hero = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-primary/10 via-white to-secondary/10">
       <div className="container mx-auto px-4 py-16">
@@ -16,11 +21,11 @@ const Hero = () => {
               Let Raha Events turn your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4" onClick={() => scrollToSection("contact")}>
                 Plan Your Event
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4" onClick={() => scrollToSection("tours")}>
                 Explore Tours
                 <MapPin className="ml-2 h-5 w-5" />
               </Button>

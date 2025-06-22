@@ -1,56 +1,60 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Users, Star } from "lucide-react";
 
 const Tours = () => {
   const tours = [
     {
-      title: "Volcanoes National Park",
-      description: "Gorilla trekking and golden monkey encounters",
-      duration: "3 Days",
-      groupSize: "8-12 people",
+      title: "Gorilla Trekking Experience",
+      location: "Volcanoes National Park",
+      duration: "Full Day",
+      groupSize: "8 people max",
+      price: "$600",
       rating: 4.9,
-      price: "From $850",
-      highlights: ["Gorilla Trekking", "Golden Monkeys", "Cultural Village"]
+      description: "Meet the magnificent mountain gorillas in their natural habitat. An unforgettable wildlife experience.",
+      highlights: ["Professional Guide", "Permits Included", "Transportation", "Lunch Provided"]
     },
     {
-      title: "Lake Kivu Experience",
-      description: "Relaxing lakeside retreat with water activities",
+      title: "Lake Kivu Scenic Tour",
+      location: "Lake Kivu",
       duration: "2 Days",
-      groupSize: "6-15 people",
+      groupSize: "12 people max",
+      price: "$350",
       rating: 4.8,
-      price: "From $420",
-      highlights: ["Boat Cruise", "Island Hopping", "Coffee Plantation"]
+      description: "Relax by Rwanda's largest lake with boat rides, swimming, and beautiful lakeside accommodations.",
+      highlights: ["Boat Rides", "Swimming", "Lakeside Lodge", "Local Cuisine"]
     },
     {
-      title: "Akagera National Park",
-      description: "Big Five safari adventure in Rwanda's savanna",
-      duration: "2 Days",
-      groupSize: "4-10 people",
+      title: "Kigali City Explorer",
+      location: "Kigali",
+      duration: "Half Day",
+      groupSize: "15 people max",
+      price: "$80",
       rating: 4.7,
-      price: "From $650",
-      highlights: ["Game Drives", "Boat Safari", "Bird Watching"]
+      description: "Discover Rwanda's vibrant capital city, its history, culture, and modern developments.",
+      highlights: ["Genocide Memorial", "Local Markets", "Cultural Sites", "City Panorama"]
     },
     {
-      title: "Kigali City Tour",
-      description: "Discover Rwanda's vibrant capital and its history",
-      duration: "1 Day",
-      groupSize: "5-20 people",
-      rating: 4.6,
-      price: "From $85",
-      highlights: ["Genocide Memorial", "Markets", "Cultural Sites"]
+      title: "Nyungwe Forest Adventure",
+      location: "Nyungwe National Park",
+      duration: "3 Days",
+      groupSize: "10 people max",
+      price: "$450",
+      rating: 4.9,
+      description: "Explore ancient rainforests, spot primates, and walk the famous canopy bridge.",
+      highlights: ["Canopy Walk", "Primate Tracking", "Bird Watching", "Nature Trails"]
     }
   ];
 
   return (
-    <section id="tours" className="py-20 bg-white">
+    <section id="tours" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Discover Rwanda</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Rwanda Tours</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience the beauty of the Land of a Thousand Hills with our carefully crafted tour packages
+            Discover the Land of a Thousand Hills with our expertly crafted tour experiences
           </p>
         </div>
         
@@ -59,40 +63,47 @@ const Tours = () => {
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
-                  <CardTitle className="text-lg leading-tight">{tour.title}</CardTitle>
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-medium">{tour.rating}</span>
+                  <Badge variant="secondary">{tour.price}</Badge>
+                  <div className="flex items-center">
+                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400 mr-1" />
+                    <span className="text-sm">{tour.rating}</span>
                   </div>
                 </div>
-                <CardDescription>{tour.description}</CardDescription>
+                <CardTitle className="text-lg">{tour.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
-                    <Clock className="h-4 w-4" />
-                    <span>{tour.duration}</span>
+                <p className="text-gray-600 text-sm">{tour.description}</p>
+                
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center text-gray-500">
+                    <MapPin className="h-4 w-4 mr-2" />
+                    {tour.location}
                   </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-600">
-                    <Users className="h-4 w-4" />
-                    <span>{tour.groupSize}</span>
+                  <div className="flex items-center text-gray-500">
+                    <Clock className="h-4 w-4 mr-2" />
+                    {tour.duration}
+                  </div>
+                  <div className="flex items-center text-gray-500">
+                    <Users className="h-4 w-4 mr-2" />
+                    {tour.groupSize}
                   </div>
                 </div>
                 
-                <div className="space-y-2">
-                  {tour.highlights.map((highlight, idx) => (
-                    <Badge key={idx} variant="outline" className="mr-1 mb-1 text-xs">
-                      {highlight}
-                    </Badge>
-                  ))}
+                <div>
+                  <h4 className="font-semibold text-sm mb-2">Tour Highlights:</h4>
+                  <ul className="space-y-1">
+                    {tour.highlights.map((highlight, idx) => (
+                      <li key={idx} className="text-xs text-gray-500 flex items-center">
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 
-                <div className="flex justify-between items-center pt-4">
-                  <div className="text-lg font-bold text-primary">{tour.price}</div>
-                  <Button size="sm" variant="outline">
-                    Learn More
-                  </Button>
-                </div>
+                <Button className="w-full bg-primary hover:bg-primary/90">
+                  Book Tour
+                </Button>
               </CardContent>
             </Card>
           ))}

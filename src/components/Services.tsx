@@ -1,47 +1,42 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Heart, Users, Building2, Camera } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Heart, Users, Camera, MapPin } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
       icon: Heart,
       title: "Wedding Planning",
-      description: "Complete wedding planning from intimate ceremonies to grand celebrations",
-      features: ["Venue Selection", "Decoration", "Catering", "Photography"],
-      color: "bg-pink-100 text-pink-700"
+      description: "Create your perfect day with our comprehensive wedding planning services. From venue selection to catering coordination.",
+      features: ["Venue Selection", "Catering Coordination", "Decoration & Design", "Photography Coordination"]
     },
     {
       icon: Users,
-      title: "Private Parties",
-      description: "Birthday parties, anniversaries, and special celebrations",
-      features: ["Theme Design", "Entertainment", "Catering", "Coordination"],
-      color: "bg-purple-100 text-purple-700"
-    },
-    {
-      icon: Building2,
       title: "Corporate Events",
-      description: "Professional events, conferences, and team building activities",
-      features: ["Venue Management", "AV Setup", "Catering", "Logistics"],
-      color: "bg-blue-100 text-blue-700"
+      description: "Professional event management for conferences, team building, and corporate celebrations.",
+      features: ["Conference Management", "Team Building Activities", "Corporate Parties", "Product Launches"]
     },
     {
       icon: Camera,
-      title: "Event Photography",
-      description: "Professional photography and videography for all events",
-      features: ["Photo Sessions", "Video Coverage", "Editing", "Albums"],
-      color: "bg-green-100 text-green-700"
+      title: "Private Parties",
+      description: "Celebrate life's special moments with expertly planned birthday parties, anniversaries, and gatherings.",
+      features: ["Birthday Celebrations", "Anniversary Parties", "Family Gatherings", "Social Events"]
+    },
+    {
+      icon: MapPin,
+      title: "Rwanda Tours",
+      description: "Discover the beauty of Rwanda with our guided tours to national parks, cultural sites, and scenic locations.",
+      features: ["Gorilla Trekking", "Cultural Tours", "City Tours", "Adventure Packages"]
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Event Services</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We specialize in creating memorable events that reflect your unique style and vision
+            From intimate gatherings to grand celebrations, we make every event extraordinary
           </p>
         </div>
         
@@ -49,22 +44,19 @@ const Services = () => {
           {services.map((service, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="text-center">
-                <div className={`w-16 h-16 mx-auto rounded-full ${service.color} flex items-center justify-center mb-4`}>
-                  <service.icon className="h-8 w-8" />
-                </div>
+                <service.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                 <CardTitle className="text-xl">{service.title}</CardTitle>
-                <CardDescription className="text-center">
-                  {service.description}
-                </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2">
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <Badge key={idx} variant="secondary" className="mr-2 mb-2">
+                    <li key={idx} className="text-sm text-gray-500 flex items-center">
+                      <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
                       {feature}
-                    </Badge>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </CardContent>
             </Card>
           ))}
