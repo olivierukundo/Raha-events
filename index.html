@@ -6,57 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raha Events - Premier Tours & Event Planning in Rwanda</title>
     <meta name="description" content="Raha Events - Premier event planning and tours company in Rwanda. Specializing in weddings, corporate events, and Rwanda tourism experiences." />
-    <meta name="author" content="Raha Events" />
-    <meta name="keywords" content="Rwanda events, wedding planning, Rwanda tours, Kigali events, gorilla trekking, event planning Rwanda" />
-
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#222222" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Raha Events" />
-    
-    <!-- Manifest -->
-    <link rel="manifest" href="./manifest.json" />
     
     <!-- Icons -->
     <link rel="icon" href="./placeholder.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="./placeholder.svg" />
-
+    
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Raha Events - Premier Tours & Event Planning in Rwanda" />
     <meta property="og:description" content="Creating unforgettable experiences across Rwanda. From dream weddings to exceptional tours." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
     <meta property="og:url" content="https://rahaevents.rw" />
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@rahaevents" />
-    <meta name="twitter:title" content="Raha Events - Premier Tours & Event Planning in Rwanda" />
-    <meta name="twitter:description" content="Creating unforgettable experiences across Rwanda. From dream weddings to exceptional tours." />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="./src/main.tsx"></script>
-    
-    <!-- PWA Service Worker -->
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          const swPath = window.location.pathname.includes('/Raha-events/') 
-            ? '/Raha-events/sw.js' 
-            : './sw.js';
-          navigator.serviceWorker.register(swPath)
-            .then((registration) => {
-              console.log('SW registered: ', registration);
-            })
-            .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
-            });
-        });
-      }
-    </script>
   </body>
 </html>
