@@ -39,13 +39,16 @@
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
     
     <!-- PWA Service Worker -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('./sw.js')
+          const swPath = window.location.pathname.includes('/Raha-events/') 
+            ? '/Raha-events/sw.js' 
+            : './sw.js';
+          navigator.serviceWorker.register(swPath)
             .then((registration) => {
               console.log('SW registered: ', registration);
             })

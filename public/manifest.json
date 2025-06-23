@@ -8,6 +8,7 @@
   "background_color": "#ffffff",
   "theme_color": "#222222",
   "orientation": "portrait-primary",
+  "scope": "./",
   "icons": [
     {
       "src": "./placeholder.svg",
